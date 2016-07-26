@@ -1,8 +1,10 @@
 /// <reference path="../typings/index.d.ts" />
 
-import * as angular from 'angular';
-import 'angular-mocks';
-import {FsrRatings} from './FsrRatings';
+import * as angular from "angular";
+import "angular-mocks";
+import {FsrRatings} from "./FsrRatings";
+import * as sinon from "sinon";
+import {AuthoritiesService} from "./AuthoritiesService";
 
 describe('FsrRatings component', () => {
     beforeEach(() => {

@@ -1,8 +1,7 @@
 import {AuthoritiesService} from "./AuthoritiesService";
 class FsrRatingsController {
-    static $inject=['authoritiesService'];
 
-    constructor(private authoritiesService:AuthoritiesService) {
+    constructor() {
     }
 }
 

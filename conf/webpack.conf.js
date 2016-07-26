@@ -38,6 +38,9 @@ module.exports = {
           'ts'
         ]
       }
+    ],
+    noParse: [
+      /\/sinon\.js/,
     ]
   },
   plugins: [
