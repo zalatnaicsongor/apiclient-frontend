@@ -3,8 +3,6 @@
 import * as angular from "angular";
 import "angular-mocks";
 import {FsrRatings} from "./FsrRatings";
-import * as sinon from "sinon";
-import {AuthoritiesService} from "./AuthoritiesService";
 
 describe('FsrRatings component', () => {
     beforeEach(() => {
@@ -14,13 +12,13 @@ describe('FsrRatings component', () => {
         angular.mock.module('fsrRatingsModule');
     });
 
-    it('renders an FsrAuthorityList and an FsrRatingsDistributionTable component',
+    it('renders an FsrAuthoritiesList and an FsrRatingsDistributionTable component',
         angular.mock.inject(($rootScope:ng.IRootScopeService, $compile:ng.ICompileService) => {
             const element = $compile('<fsr-ratings></fsr-ratings>')($rootScope);
             $rootScope.$digest();
-            const fsrAuthorityList = element.find('fsr-authority-list');
+            const fsrAuthoritiesList = element.find('fsr-authorities-list');
             const fsrRatingsDistributionTable = element.find('fsr-ratings-distribution-table');
-            expect(fsrAuthorityList).not.toEqual({});
+            expect(fsrAuthoritiesList).not.toEqual({});
             expect(fsrRatingsDistributionTable).not.toEqual({});
         })
     );

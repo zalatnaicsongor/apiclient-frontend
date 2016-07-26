@@ -1,4 +1,3 @@
-import {AuthoritiesService} from "./AuthoritiesService";
 class FsrRatingsController {
 
     constructor() {
