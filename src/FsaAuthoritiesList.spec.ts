@@ -4,17 +4,17 @@ import * as angular from "angular";
 import "angular-mocks";
 import IQService = angular.IQService;
 import {Authority} from "./Authority";
-import {FsrAuthoritiesList} from "./FsrAuthoritiesList";
+import {FsaAuthoritiesList} from "./FsaAuthoritiesList";
 import * as sinon from 'sinon';
 
-describe('FsrAuthoritiesList component', () => {
+describe('FsaAuthoritiesList component', () => {
     var getAuthoritiesDeferred:ng.IDeferred<Array<Authority>>;
     var $q:ng.IQService;
     var authorities = [new Authority(1, "name1"), new Authority(2, "name2")];
 
     beforeEach(() => {
-        angular.module('fsrAuthoritiesListModule', ['fsr-authorities-list.html']);
-        angular.mock.module('fsrAuthoritiesListModule');
+        angular.module('fsaAuthoritiesListModule', ['fsa-authorities-list.html']);
+        angular.mock.module('fsaAuthoritiesListModule');
         angular.mock.module({
             authoritiesService: {
                 getAuthorities: () => {
@@ -24,7 +24,7 @@ describe('FsrAuthoritiesList component', () => {
         });
 
 
-        angular.module('fsrAuthoritiesListModule').component('fsrAuthoritiesList', new FsrAuthoritiesList());
+        angular.module('fsaAuthoritiesListModule').component('fsaAuthoritiesList', new FsaAuthoritiesList());
     });
 
     beforeEach(angular.mock.inject((_$q_:ng.IQService) => {
@@ -35,16 +35,16 @@ describe('FsrAuthoritiesList component', () => {
 
     it('does not show the list until the results are loaded',
         angular.mock.inject(($rootScope:ng.IRootScopeService, $compile:ng.ICompileService) => {
-            const element = $compile('<fsr-authorities-list></fsr-authorities-list>')($rootScope);
+            const element = $compile('<fsa-authorities-list></fsa-authorities-list>')($rootScope);
             $rootScope.$digest();
-            const fsrAuthoritiesList = element.find('#fsrAuthoritiesList');
+            const fsrAuthoritiesList = element.find('select');
             expect(fsrAuthoritiesList.length).toEqual(0);
         })
     );
 
     it('the list is shown after the results has been loaded',
         angular.mock.inject(($rootScope:ng.IRootScopeService, $compile:ng.ICompileService) => {
-            const element = $compile('<fsr-authorities-list></fsr-authorities-list>')($rootScope);
+            const element = $compile('<fsa-authorities-list></fsa-authorities-list>')($rootScope);
             $rootScope.$digest();
             getAuthoritiesDeferred.resolve(authorities);
             $rootScope.$digest();
@@ -57,7 +57,7 @@ describe('FsrAuthoritiesList component', () => {
         angular.mock.inject(($rootScope, $compile:ng.ICompileService) => {
             $rootScope.do = sinon.stub();
 
-            const element = $compile('<fsr-authorities-list on-change="do(selectedAuthority)"></fsr-authorities-list>')($rootScope);
+            const element = $compile('<fsa-authorities-list on-change="do(selectedAuthority)"></fsa-authorities-list>')($rootScope);
             $rootScope.$digest();
             getAuthoritiesDeferred.resolve(authorities);
             $rootScope.$digest();

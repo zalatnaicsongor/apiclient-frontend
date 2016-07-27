@@ -1,0 +1,7 @@
+<div ng-if="!$ctrl.loaded">
+    <h1>Loading... (it may take a couple of seconds)</h1>
+</div>
+<div ng-if="$ctrl.loaded">
+    <fhis-ratings-distribution-table distribution="$ctrl.ratingsDistribution" ng-if="$ctrl.isFHIS"></fhis-ratings-distribution-table>
+    <fhrs-ratings-distribution-table distribution="$ctrl.ratingsDistribution" ng-if="!$ctrl.isFHIS"></fhrs-ratings-distribution-table>
+</div>

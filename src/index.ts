@@ -1,13 +1,17 @@
 /// <reference path="../typings/index.d.ts" />
 
 import * as angular from "angular";
-import {FsrRatings} from "./FsrRatings.ts";
+import {FsaRatings} from "./FsaRatings.ts";
 import {AuthoritiesService} from "./AuthoritiesService";
-import {FsrAuthoritiesList} from "./FsrAuthoritiesList";
+import {FsaAuthoritiesList} from "./FsaAuthoritiesList";
+import {FsaRatingsDistributionTable} from "./FsaRatingsDistributionTable";
+import {RatingsDistributionService} from "./RatingsDistributionService";
 
 export let app = angular
-    .module('fsr', [])
+    .module('fsa', [])
     .constant('apiUrl', 'http://localhost:8080')
     .service('authoritiesService', AuthoritiesService)
-    .component('fsrRatings', new FsrRatings())
-    .component('fsrAuthoritiesList', new FsrAuthoritiesList());
+    .service('ratingsDistributionService', RatingsDistributionService)
+    .component('fsaRatings', new FsaRatings())
+    .component('fsaAuthoritiesList', new FsaAuthoritiesList())
+    .component('fsaRatingsDistributionTable', new FsaRatingsDistributionTable());
