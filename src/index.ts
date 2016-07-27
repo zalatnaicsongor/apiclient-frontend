@@ -6,6 +6,8 @@ import {AuthoritiesService} from "./AuthoritiesService";
 import {FsaAuthoritiesList} from "./FsaAuthoritiesList";
 import {FsaRatingsDistributionTable} from "./FsaRatingsDistributionTable";
 import {RatingsDistributionService} from "./RatingsDistributionService";
+import {FHISRatingsDistributionTable} from "./FHISRatingsDistributionTable";
+import {FHRSRatingsDistributionTable} from "./FHRSRatingsDistributionTable";
 
 export let app = angular
     .module('fsa', [])
@@ -14,4 +16,6 @@ export let app = angular
     .service('ratingsDistributionService', RatingsDistributionService)
     .component('fsaRatings', new FsaRatings())
     .component('fsaAuthoritiesList', new FsaAuthoritiesList())
-    .component('fsaRatingsDistributionTable', new FsaRatingsDistributionTable());
+    .component('fsaRatingsDistributionTable', new FsaRatingsDistributionTable())
+    .component('fhisRatingsDistributionTable', new FHISRatingsDistributionTable())
+    .component('fhrsRatingsDistributionTable', new FHRSRatingsDistributionTable());

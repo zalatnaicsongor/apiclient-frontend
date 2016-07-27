@@ -1,0 +1,13 @@
+Prerequisites:
+    - Run the following commands:
+        npm install -g typings
+        npm install
+        typings install
+
+To run the tests, issue the following command:
+    node_modules/.bin/gulp test
+
+To run the application:
+    Start the back-end (http://localhost:8080)
+    node_modules/.bin/gulp serve
+    Open browser @ http://localhost:3000
